@@ -1,0 +1,117 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+    internal class Weapon
+    {
+        public int gulletutum { get; set; }  
+        public int daraqdakigullesayi { get; set; }
+        public bool atismod { get; set; } 
+        public void Shoot()
+        {
+            if (atismod == false &&daraqdakigullesayi>0 &&daraqdakigullesayi<=gulletutum)
+                daraqdakigullesayi-=1;
+        }
+       public void Fire()
+        {
+            if (atismod == false && daraqdakigullesayi > 0&& daraqdakigullesayi <= gulletutum)
+            {
+                while (daraqdakigullesayi > 0)
+                {
+                    daraqdakigullesayi-=1;
+                    Console.WriteLine(daraqdakigullesayi);
+                }
+              
+            }
+            else if(atismod== true && daraqdakigullesayi > 0 && daraqdakigullesayi <= gulletutum)
+            {
+                while (daraqdakigullesayi > 0)
+                {
+                    daraqdakigullesayi -= 2;
+                    Console.WriteLine(daraqdakigullesayi);
+                }
+               
+            }
+        }
+        public int GetRemainBulletCount()
+        {
+                                                                                                                                
+            if (daraqdakigullesayi < gulletutum)
+            {
+                Console.WriteLine(gulletutum-daraqdakigullesayi);
+            }
+             else if (daraqdakigullesayi > gulletutum)
+            {
+                Console.WriteLine("daraqdaki gulle sayi daragin tutumundan cox ola bilmez");
+            }
+            return 0; 
+        }
+        public void Reload()
+        {
+            if (daraqdakigullesayi < gulletutum)
+            {
+                while (daraqdakigullesayi < gulletutum)
+                {
+                    daraqdakigullesayi++;
+                }
+            }
+             else if (daraqdakigullesayi > gulletutum)
+            {
+                Console.WriteLine("daraqdaki gulle sayi tutumdan cox ola bilmez");
+
+            }
+           else if(daraqdakigullesayi == gulletutum)
+            {
+                Console.WriteLine("daraq tam doludur ");
+            }
+           
+        }
+        public void ChangeFireMode()
+        {
+            if (atismod == true)
+            {
+                atismod = false;    
+            }
+            else if(atismod == false)
+            {
+                atismod= true;
+            }
+        }
+
+    }
+}
+  using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            do
+            {
+                Console.WriteLine("================meny==================");
+                Console.WriteLine(" 0 - İnformasiya almaq üçün");
+                Console.WriteLine("1 - Shoot metodu üçün");
+                Console.WriteLine("2 - Fire metodu üçün");
+                Console.WriteLine("3 - GetRemainBulletCount metodu üçün");
+                Console.WriteLine("4 - Reload metodu üçün");
+                Console.WriteLine("5 - ChangeFireMode metodu üçün");
+                Console.WriteLine("6 - Proqramdan dayandırmaq");
+                Console.WriteLine("========================================");
+                Console.WriteLine( "menyudan bir reqem daxil edin :");
+                int number=Convert.ToInt32(Console.ReadLine()); 
+            } while ();
+           Console.ReadLine();
+
+        }
+    }
+}
